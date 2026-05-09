@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#0e0f0e] text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#C5E139] text-[#0e0f0e] font-semibold px-6 py-3 rounded-lg hover:bg-[#C5E139]/90 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#00A6E0] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#00A6E0]/90 transition-colors;
+  }
+  
+  .section-title {
+    @apply text-4xl font-black leading-tight;
+  }
+  
+  .section-subtitle {
+    @apply text-[#C5E139] text-xs font-bold tracking-[0.25em] uppercase;
+  }
+  
+  .text-body {
+    @apply text-[#77788A] leading-relaxed;
+  }
+}
+
+/* Custom animations and utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111211;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5E139;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C5E139/80;
+}
