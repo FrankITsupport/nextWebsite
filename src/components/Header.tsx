@@ -1,61 +1,96 @@
 'use client'
 
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+
 interface HeaderProps {
   scrolled: boolean;
 }
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#featured-projects' },
+  { label: 'Capabilities', href: '#services' },
   { label: 'Process', href: '#process' },
-  { label: 'Portfolio', href: '#gallery' },
-  { label: 'About', href: '#stats' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Why WNG', href: '#why-choose' },
+  { label: 'Portfolio', href: '/portfolio/' },
 ];
 
 export default function Header({ scrolled }: HeaderProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[#0e0f0e]/95 backdrop-blur-md border-b border-white/5 py-3'
-          : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
-          <img 
-            src="/assets/logo/logo1.png" 
-            alt="Woodnork Green Branding, Print & Promo" 
-            className="h-10 w-auto"
-          />
-        </a>
+    <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
+      <div
+        className={`mx-auto max-w-7xl border transition-all duration-300 ${
+          scrolled || open
+            ? 'border-white/10 bg-[#0e0f0e]/96 shadow-2xl'
+            : 'border-white/15 bg-[#0e0f0e]/78 backdrop-blur-md'
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 py-3 md:px-5">
+          <a href="#" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+            <img
+              src="/assets/logo/logo1.png"
+              alt="Woodnork Green Branding, Print & Promo"
+              className="h-10 w-auto"
+            />
+          </a>
 
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          <nav className="hidden items-center bg-black/20 md:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="border-l border-white/10 px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white/78 transition-colors duration-200 first:border-l-0 hover:bg-white/5 hover:text-[#C5E139]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="hidden items-center gap-3 md:flex">
             <a
-              key={link.label}
-              href={link.href}
-              className="text-sm text-[#77788A] hover:text-[#C5E139] transition-colors duration-200 tracking-wide"
+              href="#final-cta"
+              className="inline-flex items-center bg-[#C5E139] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0e0f0e] transition-colors duration-200 hover:bg-[#d4f04a]"
             >
-              {link.label}
+              Request Quote
             </a>
-          ))}
-        </nav>
+          </div>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center gap-2 bg-[#C5E139] text-[#0e0f0e] text-sm font-bold px-5 py-2.5 rounded hover:bg-[#d4f04a] transition-colors duration-200 tracking-wide"
-        >
-          Request a Quote
-        </a>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="inline-flex h-11 w-11 items-center justify-center border border-white/15 bg-white/5 text-white transition-colors hover:border-[#C5E139] hover:text-[#C5E139] md:hidden"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
 
-        <button className="md:hidden text-white p-1">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2">
-            <line x1="3" y1="6" x2="19" y2="6" />
-            <line x1="3" y1="11" x2="19" y2="11" />
-            <line x1="3" y1="16" x2="19" y2="16" />
-          </svg>
-        </button>
+        {open && (
+          <div className="border-t border-white/10 bg-[#0e0f0e] md:hidden">
+            <nav className="grid">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-white/10 px-5 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white/80 hover:bg-white/5 hover:text-[#C5E139]"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="#final-cta"
+                onClick={() => setOpen(false)}
+                className="bg-[#C5E139] px-5 py-4 text-center text-sm font-black uppercase tracking-wide text-[#0e0f0e]"
+              >
+                Request Quote
+              </a>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

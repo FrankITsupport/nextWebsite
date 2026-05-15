@@ -25,27 +25,27 @@ export default function Home() {
       <Header scrolled={scrolled} />
       <Hero />
       {/* Featured Projects Section - New component */}
-      <section id="featured-projects">
+      <section id="featured-projects" className="relative border-t border-white/10">
         <FeaturedProjects />
       </section>
       {/* Short Positioning Section - New component */}
-      <section id="positioning">
+      <section id="positioning" className="relative border-t border-white/10">
         <Positioning />
       </section>
       {/* Key Services Section - Updated component */}
-      <section id="services">
+      <section id="services" className="relative border-t border-white/10">
         <Services />
       </section>
-      {/* Why Choose Woodnork Green Section - New component */}
-      <section id="why-choose">
-        <WhyChoose />
-      </section>
       {/* Our Process Section - Updated component */}
-      <section id="process">
+      <section id="process" className="relative border-t-4 border-[#C5E139]">
         <Process />
       </section>
+      {/* Why Choose Woodnork Green Section - New component */}
+      <section id="why-choose" className="relative border-t border-white/10">
+        <WhyChoose />
+      </section>
       {/* Final CTA Section - New component */}
-      <section id="final-cta">
+      <section id="final-cta" className="relative border-t border-[#C5E139]/40">
         <FinalCTA />
       </section>
       <Footer />

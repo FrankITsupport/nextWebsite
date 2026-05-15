@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Woodnork Green Ltd - Event Branding, Fabrication & Printing in Nairobi',
@@ -130,7 +127,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} font-sans antialiased bg-[#0e0f0e] text-white overflow-x-hidden`}>
+      <body className="font-sans antialiased bg-[#0e0f0e] text-white overflow-x-hidden">
         {children}
       </body>
     </html>

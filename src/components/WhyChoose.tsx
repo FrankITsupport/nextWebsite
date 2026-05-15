@@ -1,124 +1,134 @@
-import { CheckCircle, ArrowRight, Award, Users, Settings, Truck, Clock, Target } from 'lucide-react';
+import { ArrowRight, Award, CheckCircle, Clock, Factory, ShieldCheck, Truck, Users } from 'lucide-react';
+
+const trustFactors = [
+  {
+    icon: Factory,
+    title: 'In-house production control',
+    description: 'Workshop capability gives WNG better control over fabrication, branding, finishing, checks, and dispatch readiness.',
+    metric: 'Workshop-led',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Quality before dispatch',
+    description: 'Projects are reviewed for finish, branding accuracy, print quality, completeness, and site readiness before delivery.',
+    metric: 'QC checks',
+  },
+  {
+    icon: Truck,
+    title: 'Delivery and site execution',
+    description: 'The team coordinates delivery, installation, adjustments, dismantling, and handover so clients avoid disconnected vendors.',
+    metric: 'Site support',
+  },
+  {
+    icon: Users,
+    title: 'Corporate buyer understanding',
+    description: 'WNG works with marketing teams, procurement departments, agencies, NGOs, institutions, and premium event teams.',
+    metric: 'Multi-sector',
+  },
+  {
+    icon: Clock,
+    title: 'Built for urgent timelines',
+    description: 'The workflow supports projects with fast approvals, fixed event dates, multiple suppliers, and tight production windows.',
+    metric: 'Fast turnarounds',
+  },
+  {
+    icon: Award,
+    title: 'Design-to-production thinking',
+    description: 'Ideas are considered through materials, build method, transport, installation, visibility, and final presentation.',
+    metric: 'Practical design',
+  },
+];
+
+const confidenceStats = [
+  { value: '10+', label: 'Years of delivery experience' },
+  { value: '500+', label: 'Projects delivered' },
+  { value: '1', label: 'Coordinated production process' },
+];
 
 export default function WhyChoose() {
-  const differentiators = [
-    {
-      icon: Target,
-      title: "End-to-End Execution",
-      description: "We support projects from brief capture, design, costing, and production to delivery, installation, handover, and post-project review.",
-      color: "#C5E139"
-    },
-    {
-      icon: Settings,
-      title: "In-House Workshop Capability",
-      description: "Our workshop and production setup allows us to fabricate, brand, finish, and prepare a wide range of custom event and display structures.",
-      color: "#00A6E0"
-    },
-    {
-      icon: Award,
-      title: "Design-to-Production Thinking",
-      description: "We do not only design for appearance. We design with materials, fabrication, transport, installation, safety, and site conditions in mind.",
-      color: "#C5E139"
-    },
-    {
-      icon: Users,
-      title: "Corporate Project Experience",
-      description: "We understand the needs of marketing teams, procurement departments, agencies, event planners, NGOs, financial institutions, and premium brands.",
-      color: "#00A6E0"
-    },
-    {
-      icon: CheckCircle,
-      title: "Quality Control Before Dispatch",
-      description: "Projects are checked for finish, branding accuracy, structural suitability, print quality, completeness, and readiness before dispatch.",
-      color: "#C5E139"
-    },
-    {
-      icon: Truck,
-      title: "Reliable Delivery and Installation",
-      description: "Our team supports site delivery, setup, installation, dismantling, and handover so that clients do not have to manage multiple disconnected vendors.",
-      color: "#00A6E0"
-    },
-    {
-      icon: Clock,
-      title: "Built for Urgent and Complex Work",
-      description: "We are used to projects that require fast coordination, multiple departments, quick approvals, and accurate execution under time pressure.",
-      color: "#C5E139"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-[#0e0f0e]">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-10 bg-[#C5E139]" />
-            <span className="text-[#C5E139] text-xs font-bold tracking-[0.25em] uppercase">
-              Corporate Trust Factors
-            </span>
-            <div className="h-px w-10 bg-[#C5E139]" />
+    <section className="bg-[#0e0f0e] py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 grid gap-8 lg:grid-cols-[0.72fr_0.55fr] lg:items-end">
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <div className="h-px w-10 bg-[#C5E139]" />
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C5E139]">
+                Corporate Trust Factors
+              </span>
+            </div>
+
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
+              Why serious clients choose{' '}
+              <span className="text-[#C5E139]">Woodnork Green</span>
+            </h2>
           </div>
-          
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            Why Corporate Clients{' '}
-            <span className="text-[#C5E139]">Work With Woodnork Green</span>
-          </h2>
-          
-          <p className="text-[#77788A] text-lg max-w-3xl mx-auto">
-            Corporate projects require more than attractive designs. They require planning, production discipline, material understanding, site coordination, quality control, and reliable delivery. Woodnork Green brings these elements together through a practical design-to-production workflow.
+
+          <p className="max-w-2xl text-base leading-8 text-white/66 md:text-lg lg:ml-auto">
+            Corporate projects require more than attractive visuals. They require production discipline, material understanding, site coordination, reliable delivery, and clear accountability from brief to handover.
           </p>
         </div>
 
-        {/* Differentiators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {differentiators.map((item, index) => {
+        <div className="mb-8 grid gap-px bg-white/10 md:grid-cols-3">
+          {confidenceStats.map((item) => (
+            <div key={item.label} className="bg-[#151816] p-6">
+              <div className="text-4xl font-black text-[#C5E139]">{item.value}</div>
+              <p className="mt-2 text-sm font-bold uppercase tracking-[0.14em] text-white/58">{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+          {trustFactors.map((item) => {
             const Icon = item.icon;
+
             return (
-              <div key={index} className="group bg-[#1a1b1a] border border-white/10 rounded-xl p-6 hover:border-[#C5E139]/30 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div 
-                    className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${item.color}20` }}
-                  >
-                    <Icon size={24} className="text-white" style={{ color: item.color }} />
+              <article key={item.title} className="group bg-[#111411] p-7 transition-colors duration-300 hover:bg-[#171b17]">
+                <div className="mb-8 flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center border border-white/10 bg-white/5">
+                    <Icon size={23} className="text-[#C5E139]" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#C5E139] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-[#77788A] text-sm leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  <span className="border border-[#00A6E0]/30 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[#00A6E0]">
+                    {item.metric}
+                  </span>
                 </div>
-              </div>
+
+                <h3 className="text-xl font-black text-white transition-colors duration-200 group-hover:text-[#C5E139]">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-white/58">{item.description}</p>
+              </article>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center bg-[#1a1b1a] border border-white/10 rounded-xl p-8">
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Ready for a Production Partner That{' '}
-            <span className="text-[#C5E139]">Understands Corporate</span>
-            {' '}Requirements?
-          </h3>
-          <p className="text-[#77788A] mb-6 max-w-2xl mx-auto">
-            Share your project brief with Woodnork Green and experience the difference of working with a structured, reliable, and production-focused partner.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-8 grid gap-px bg-white/10 lg:grid-cols-[0.62fr_0.38fr]">
+          <div className="bg-[#151816] p-8">
+            <div className="mb-5 flex items-center gap-3">
+              <CheckCircle size={20} className="text-[#C5E139]" />
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#C5E139]">Buyer confidence</span>
+            </div>
+            <h3 className="text-2xl font-black text-white">
+              A production partner that understands approvals, deadlines, and site pressure.
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-white/58">
+              WNG is positioned for corporate teams that need a partner who can interpret a brief, advise on production, manage the build, and show up properly on site when the event date is fixed.
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-center gap-3 bg-[#1b2119] p-8">
             <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#C5E139] text-[#0e0f0e] font-bold px-8 py-4 rounded hover:bg-[#d4f04a] transition-all duration-200 group"
+              href="#final-cta"
+              className="inline-flex items-center justify-center gap-2 bg-[#C5E139] px-8 py-4 font-black uppercase tracking-wide text-[#0e0f0e] transition-colors duration-200 hover:bg-[#d4f04a]"
             >
               Request a Quote
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight size={18} />
             </a>
             <a
               href="#process"
-              className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold px-8 py-4 rounded hover:border-[#00A6E0] hover:text-[#00A6E0] transition-all duration-200"
+              className="inline-flex items-center justify-center border border-white/15 px-8 py-4 font-bold uppercase tracking-wide text-white transition-all duration-200 hover:border-[#00A6E0] hover:text-[#00A6E0]"
             >
-              View Our Process
+              View Process
             </a>
           </div>
         </div>

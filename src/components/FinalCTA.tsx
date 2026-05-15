@@ -1,161 +1,135 @@
-import { ArrowRight, MessageCircle, Mail, Phone, FileText } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Download, Mail, MessageCircle, Phone } from 'lucide-react';
+
+const whatsappBrief = `https://wa.me/254780397798?text=${encodeURIComponent(
+  'Hello Woodnork Green team. I would like to share a brief for a branding / fabrication / event setup project. Project name, date, location, scope, dimensions, quantity, and reference images/artwork files are below:'
+)}`;
+
+const emailBrief =
+  'mailto:hey@woodnorkgreen.co.ke?subject=Request for Quote - [Project Name]&body=Project Name:%0D%0AProject Type:%0D%0AEvent / Installation Date:%0D%0ALocation:%0D%0AScope Required:%0D%0ADimensions / Quantities:%0D%0ADelivery / Installation Requirements:%0D%0AArtwork / Brand Guidelines Attached: Yes / No%0D%0AContact Person:%0D%0A%0D%0AKindly review and advise on the recommended production approach, costing, and timeline.%0D%0ARegards,%0D%0A[Name]';
+
+const actions = [
+  {
+    icon: ArrowRight,
+    title: 'Request a Quote',
+    description: 'Send project scope for costing and production advice.',
+    href: emailBrief,
+    accent: '#C5E139',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Book a Site Visit',
+    description: 'Discuss your event, venue, fabrication needs, or workshop visit.',
+    href: 'tel:+254780397798',
+    accent: '#00A6E0',
+  },
+  {
+    icon: MessageCircle,
+    title: 'Share Your Brief',
+    description: 'Use WhatsApp for fast project details and reference images.',
+    href: whatsappBrief,
+    accent: '#25D366',
+  },
+  {
+    icon: Download,
+    title: 'Company Profile',
+    description: 'Request the latest WNG capability profile.',
+    href: emailBrief,
+    accent: '#C5E139',
+  },
+];
+
+const briefItems = [
+  'Project or event name',
+  'Required service category',
+  'Event or installation date',
+  'Location or venue',
+  'Dimensions and quantities',
+  'Brand guidelines or artwork files',
+  'Reference images or inspiration',
+  'Delivery and installation needs',
+  'Budget guidance where available',
+  'Contact person and approval timeline',
+];
 
 export default function FinalCTA() {
-  const contactOptions = [
-    {
-      icon: ArrowRight,
-      title: "Request a Quote",
-      description: "Get a detailed quotation for your project",
-      action: "#contact",
-      color: "#C5E139"
-    },
-    {
-      icon: MessageCircle,
-      title: "Share Your Brief",
-      description: "Send your project requirements directly",
-      action: `https://wa.me/254780397798?text=${encodeURIComponent('Hello Woodnork Green team. I would like to request a quote for a branding / fabrication / event setup project. Here are the details: project name, date, location, scope required, dimensions, quantity, and any reference images or artwork files.')}`,
-      color: "#25D366"
-    },
-    {
-      icon: Mail,
-      title: "Email the Team",
-      description: "Send detailed project information",
-      action: "mailto:hey@woodnorkgreen.co.ke?subject=Request for Quote - [Project Name]&body=Project Name:%0D%0AProject Type:%0D%0AEvent / Installation Date:%0D%0ALocation:%0D%0AScope Required:%0D%0ADimensions / Quantities:%0D%0ADelivery / Installation Requirements:%0D%0AArtwork / Brand Guidelines Attached: Yes / No%0D%0AContact Person:%0D%0A%0D%0AKindly review and advise on the recommended production approach, costing, and timeline.%0D%0ARegards,%0D%0A[Name]",
-      color: "#00A6E0"
-    },
-    {
-      icon: FileText,
-      title: "View Works Done",
-      description: "See our portfolio of completed projects",
-      action: "#portfolio",
-      color: "#77788A"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-[#1a1b1a]">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Main CTA Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-10 bg-[#C5E139]" />
-            <span className="text-[#C5E139] text-xs font-bold tracking-[0.25em] uppercase">
-              Get Started
-            </span>
-            <div className="h-px w-10 bg-[#C5E139]" />
-          </div>
-          
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            Have an Event, Exhibition, Launch,{' '}
-            <span className="text-[#C5E139]">Signage</span>
-            , or Branding Project Coming Up?
-          </h2>
-          
-          <p className="text-[#77788A] text-lg max-w-3xl mx-auto">
-            Share your brief with Woodnork Green and we will help you define the right solution, materials, production approach, delivery plan, and installation support.
-          </p>
-        </div>
+    <section className="relative overflow-hidden bg-[#07110f] py-24">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(197,225,57,0.16)_0%,rgba(0,166,224,0.12)_42%,rgba(7,17,15,0)_78%)]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,#C5E139,transparent)]" />
 
-        {/* Contact Options Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {contactOptions.map((option, index) => {
-            const Icon = option.icon;
-            return (
-              <a
-                key={index}
-                href={option.action}
-                className="group bg-[#0e0f0e] border border-white/10 rounded-xl p-6 hover:border-[#C5E139]/30 transition-all duration-300 text-left"
-                target={option.action.startsWith('http') || option.action.startsWith('mailto') ? '_blank' : '_self'}
-                rel={option.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div 
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: `${option.color}20` }}
-                  >
-                    <Icon size={32} className="text-white" style={{ color: option.color }} />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#C5E139] transition-colors">
-                    {option.title}
-                  </h3>
-                  
-                  <p className="text-[#77788A] text-sm">
-                    {option.description}
-                  </p>
-                </div>
-              </a>
-            );
-          })}
-        </div>
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid gap-12 lg:grid-cols-[0.72fr_0.5fr] lg:items-start">
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <div className="h-px w-10 bg-[#C5E139]" />
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C5E139]">
+                Start a Project
+              </span>
+            </div>
 
-        {/* What to Include in Your Brief */}
-        <div className="bg-[#0e0f0e] border border-white/10 rounded-xl p-8">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">
-            What to Include in Your Brief
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {[
-              "Project name or event name",
-              "Type of project",
-              "Required service",
-              "Event or installation date",
-              "Location or venue",
-              "Required dimensions or site measurements",
-              "Brand guidelines or artwork files",
-              "Reference images or inspiration",
-              "Quantity required",
-              "Delivery or installation requirements",
-              "Budget guidance where available",
-              "Contact person and approval timeline"
-            ].map((item, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C5E139]" />
-                <span className="text-[#77788A] text-sm">{item}</span>
-              </div>
-            ))}
-          </div>
+            <h2 className="max-w-4xl text-3xl font-bold leading-tight text-white md:text-5xl">
+              Planning a corporate event, exhibition, launch, or activation?
+            </h2>
 
-          <div className="text-center">
-            <p className="text-[#77788A] mb-6">
-              The more details you provide, the better we can respond with accurate recommendations and pricing.
+            <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-lg">
+              Share your brief with WNG. Our team can support concept development, technical design, fabrication, printing, logistics, installation, and final site handover from one coordinated production process.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+254780397798"
-                className="inline-flex items-center justify-center gap-2 bg-[#00A6E0] text-white font-bold px-8 py-4 rounded hover:bg-[#00b8f0] transition-all duration-200"
-              >
-                <Phone size={18} />
-                Call Us Now
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 border border-white/15 text-white font-semibold px-8 py-4 rounded hover:border-[#C5E139] hover:text-[#C5E139] transition-all duration-200"
-              >
-                Visit Our Workshop
-              </a>
-            </div>
-          </div>
-        </div>
 
-        {/* Contact Information */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-8 text-[#77788A] text-sm">
-            <div className="flex items-center gap-2">
-              <Mail size={16} className="text-[#C5E139]" />
-              <span>hey@woodnorkgreen.co.ke</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone size={16} className="text-[#C5E139]" />
-              <span>+254 780 397 798</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MessageCircle size={16} className="text-[#C5E139]" />
-              <span>WhatsApp Available</span>
+            <div className="mt-10 grid gap-px bg-white/10 md:grid-cols-2">
+              {actions.map((action) => {
+                const Icon = action.icon;
+                const isExternal = action.href.startsWith('http') || action.href.startsWith('mailto');
+
+                return (
+                  <a
+                    key={action.title}
+                    href={action.href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={action.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="group bg-[#0e0f0e] p-6 transition-colors duration-300 hover:bg-[#151b14]"
+                  >
+                    <div className="mb-6 flex items-start justify-between gap-4">
+                      <Icon size={25} style={{ color: action.accent }} />
+                      <ArrowRight size={18} className="text-white/28 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-[#C5E139]" />
+                    </div>
+                    <h3 className="text-xl font-black text-white group-hover:text-[#C5E139]">{action.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/56">{action.description}</p>
+                  </a>
+                );
+              })}
             </div>
           </div>
+
+          <aside className="border border-white/10 bg-[#0e0f0e]/82 p-7">
+            <h3 className="text-2xl font-black text-white">What to include in your brief</h3>
+            <p className="mt-3 text-sm leading-6 text-white/58">
+              The more specific the brief, the faster WNG can advise on production approach, costing, timeline, and installation planning.
+            </p>
+
+            <div className="mt-7 grid gap-px bg-white/10">
+              {briefItems.map((item) => (
+                <div key={item} className="flex items-center gap-3 bg-[#111411] p-3">
+                  <span className="h-1.5 w-1.5 shrink-0 bg-[#C5E139]" />
+                  <span className="text-sm text-white/70">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7 space-y-3 border-t border-white/10 pt-6 text-sm text-white/62">
+              <a href="tel:+254780397798" className="flex items-center gap-3 hover:text-[#C5E139]">
+                <Phone size={16} className="text-[#C5E139]" />
+                <span>+254 780 397 798</span>
+              </a>
+              <a href="mailto:hey@woodnorkgreen.co.ke" className="flex items-center gap-3 hover:text-[#C5E139]">
+                <Mail size={16} className="text-[#C5E139]" />
+                <span>hey@woodnorkgreen.co.ke</span>
+              </a>
+              <a href={whatsappBrief} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[#C5E139]">
+                <MessageCircle size={16} className="text-[#C5E139]" />
+                <span>WhatsApp brief sharing available</span>
+              </a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

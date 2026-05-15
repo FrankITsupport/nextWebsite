@@ -24,7 +24,7 @@ export default function Positioning() {
               </span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Your End-to-End{' '}
               <span className="text-[#C5E139]">Brand Visibility</span>
               {' '}Partner
